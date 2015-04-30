@@ -7,11 +7,13 @@
 
   <% @comments.each do |comment| %>
     <div class="comment">
-      <p><%= comment.full_name %></p>
-      <p><%= comment.email %></p>
-      <p><%= link_to 'Show', comment %></p>
-      <p><%= link_to 'Edit', edit_comment_path(comment) %></p>
-      <p><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <ul>
+        <li><%= comment.full_name %></li>
+        <li><%= comment.email %></li>
+        <li><%= link_to 'Show', comment %></li>
+        <li><%= link_to 'Edit', edit_comment_path(comment) %></li>
+        <li><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
     </div>
   <% end %>
 
