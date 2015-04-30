@@ -1,29 +1,33 @@
+<main>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Comments</h1>
+<h1>Listing Top Level Comments</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Full name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<p>This page is for demo purposes.  For most web app needs, there is no practical use case for an index of top-level comments.</p>
 
-  <tbody>
+
+
+
+
+
+
+
+
+
+
     <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.full_name %></td>
-        <td><%= comment.email %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="comment">
+        <p><%= comment.full_name %></p>
+        <p><%= comment.email %></p>
+        <p><%= link_to 'Show', comment %></p>
+        <p><%= link_to 'Edit', edit_comment_path(comment) %></p>
+        <p><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+
+
+
 
 <%= link_to 'New Comment', new_comment_path %>
+</main>
