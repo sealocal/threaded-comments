@@ -7,7 +7,6 @@
 <main>
 
   <p id="notice"><%= notice %></p>
-  <%= link_to 'New Comment', new_comment_path %>
   <% @comments.each do |comment| %>
     <%= render comment %>
   <% end %>

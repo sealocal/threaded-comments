@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<nav>
+  <ul>
+    <li><%= link_to 'Comments', comments_path %></li>
+    <li><%= link_to 'New Comment', new_comment_path %></li>
+  </ul>
+</nav>
 <%= yield %>
 
 </body>
