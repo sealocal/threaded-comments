@@ -9,20 +9,7 @@
   <p id="notice"><%= notice %></p>
   <%= link_to 'New Comment', new_comment_path %>
   <% @comments.each do |comment| %>
-    <div class="comment">
-      <ul class="author">
-        <li><%= comment.full_name %></li>
-        <li>(<%= mail_to comment.email %>)</li>
-      </ul>
-      <p class="content">
-        <%= comment.content %>
-      </p>
-      <ul class="actions">
-        <li><%= link_to 'Show', comment %></li>
-        <li><%= link_to 'Edit', edit_comment_path(comment) %></li>
-        <li><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      </ul>
-    </div>
+    <%= render comment %>
   <% end %>
 
 </main>
