@@ -1,4 +1,8 @@
 class Comment < ActiveRecord::Base
+
+  has_many :comments
+  belongs_to :comment
+
   validates :full_name, presence: true
   validate :full_name_must_contain_at_least_two_tokens
 
