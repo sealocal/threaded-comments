@@ -45,3 +45,8 @@ nav ul li {
 header, main {
   padding: .5em;
 }
+
+footer {
+  margin-top: 5em;
+  text-align: center;
+}
