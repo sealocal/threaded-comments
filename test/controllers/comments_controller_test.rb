@@ -36,10 +36,19 @@ class CommentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update comment" do
+  test "authorized user can update comment" do
     patch :update, id: @comment, comment: { email: 'user-one@example.com', full_name: 'Updated Name', content: 'Updated contnent.' }
     assert_response :redirect
     assert_redirected_to comment_path(@comment)
+  end
+
+  test "unauthorized user cannot update comment" do
+    # assign other user to session
+    session[:full_name] = comments(:two).full_name
+    session[:email] = comments(:two).email
+    patch :update, id: @comment, comment: { email: 'user-one@example.com', full_name: 'Updated Name', content: 'Updated contnent.' }
+    assert_response :redirect
+    assert_redirected_to root_path
   end
 
   test "authorized user can delete comment" do
