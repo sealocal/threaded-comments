@@ -28,6 +28,8 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        session[:full_name], session[:email] = @comment.full_name, @comment.email
+
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
