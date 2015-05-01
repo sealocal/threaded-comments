@@ -11,13 +11,15 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :comment_id, value: @comment.id || params[:comment] %>
+
   <div class="field inline">
     <%= f.label :full_name %><br>
-    <%= f.text_field :full_name, value: @comment.new_record? ? session[:full_name] : @comment.full_name %>
+    <%= f.text_field :full_name, value: @comment.full_name || session[:full_name]  %>
   </div>
   <div class="field inline">
     <%= f.label :email %><br>
-    <%= f.text_field :email, value: @comment.new_record? ? session[:email] : @comment.email %>
+    <%= f.text_field :email, value: @comment.email || session[:email]  %>
   </div>
   <div class="field">
     <%= f.label :content %><br>
