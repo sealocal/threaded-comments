@@ -15,4 +15,6 @@
       <li><%= link_to 'New Comment', controller: :comments, action: :new, comment: comment %></li>
     <% end %>
   </ul>
+
+  <%= render comment.comments unless comment.comments.empty? %>
 </div>

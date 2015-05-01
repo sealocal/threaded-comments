@@ -6,10 +6,17 @@
 
 .comment {
   margin: 1em auto;
-  padding: 0 1em;
+  padding: .5em 2em;
   width: 50%;
   background-color: #fafafa;
-  border: 1px solid #000;
+}
+
+.comment .comment {
+  width: 95%;
+  position: inherit;
+  right: 0px;
+  margin: 0px 0px 0.5em 0em;
+  padding: 0px 0px 0px 5%;
 }
 
 .comment .author,
