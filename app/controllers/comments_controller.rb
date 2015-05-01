@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    redirect_to root_path, alert: "You're not authorized!" and return unless authorized?
   end
 
   # POST /comments
@@ -42,6 +43,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    redirect_to root_path, alert: "You're not authorized!" and return unless authorized?
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
@@ -56,6 +58,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    redirect_to root_path, alert: "You're not authorized!" and return unless authorized?
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
@@ -72,5 +75,9 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:full_name, :email, :content)
+    end
+
+    def authorized?
+      session[:email] == @comment.email && session[:full_name] == @comment.full_name
     end
 end
