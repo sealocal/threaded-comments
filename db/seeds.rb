@@ -9,9 +9,25 @@
 
 Comment.destroy_all
 
-Comment.create([
-  {full_name: 'Seed One', email: 'seed-one@example.com', content: 'Lorem ipsum'},
-  {full_name: 'Seed Two', email: 'seed-two@example.com', content: 'Lorem ipsum'}
-])
+10.times do
+  first_level_comment = Comment.create({
+      full_name: 'User One',
+      email: 'user.one@example.com',
+      content: 'First-level comment',
+      comment_id: nil
+  })
+  second_level_comment = Comment.create({
+    full_name: 'User Two',
+    email: 'user.two@example.com',
+    content: 'Second-level comment',
+    comment_id: first_level_comment.id
+  })
+  third_level_comment = Comment.create({
+    full_name: 'User One',
+    email: 'user.one@example.com',
+    content: "You're entitled to your opinion!",
+    comment_id: second_level_comment.id
+  })
+end
 
 puts "*** #{Comment.count} comments created ***"
