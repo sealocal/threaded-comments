@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :comment_id, value: @comment.id || params[:comment] %>
+  <%= f.hidden_field :comment_id, value: @comment.comment_id || params[:comment] %>
 
   <div class="field inline">
     <%= f.label :full_name %><br>
