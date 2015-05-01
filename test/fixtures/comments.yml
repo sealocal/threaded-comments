@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   full_name: User One
   email: user-one@example.com
   content: 'Lorem ipsum'
 
 two:
+  id: 2
   full_name: User Two
   email: user-two@example.com
   content: 'Dolor epset'
