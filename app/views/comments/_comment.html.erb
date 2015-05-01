@@ -7,9 +7,12 @@
     <%= comment.content %>
   </p>
   <ul class="actions">
-    <li><%= link_to 'New Comment', new_comment_path %></li>
-    <li><%= link_to 'Show', comment %></li>
-    <li><%= link_to 'Edit', edit_comment_path(comment) %></li>
+    <li class="view"><%= link_to 'View', comment %></li>
+    <% if comment.email == session[:email] %>
+      <li><%= link_to 'Edit', edit_comment_path(comment) %></li>
+    <% else %>
+      <li><%= link_to 'New Comment', new_comment_path %></li>
+    <% end %>
     <li><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></li>
   </ul>
 </div>

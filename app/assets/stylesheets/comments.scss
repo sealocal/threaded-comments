@@ -21,6 +21,17 @@
   padding: 0 1em;
 }
 
+.comment .actions {
+  text-align: right;
+}
+
+.comment .actions .view {
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+}
+
 .comment .author li,
 .comment .actions li {
   display: inline-block;
