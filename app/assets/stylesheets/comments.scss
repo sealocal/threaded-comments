@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// comments#index
+// comments/index
 
 .comment {
   margin: 1em auto;
@@ -24,4 +24,24 @@
 .comment .author li,
 .comment .actions li {
   display: inline-block;
+}
+
+// comments/_form
+
+form {
+  width: 30%;
+}
+
+.field.inline {
+  display: inline-block;
+}
+
+.new_comment textarea {
+  width: 200px;
+  height: 100px;
+}
+
+.field_with_errors input,
+.field_with_errors textarea {
+  box-shadow: 0 0 20px 1px red;
 }

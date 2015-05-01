@@ -5,6 +5,8 @@ class Comment < ActiveRecord::Base
   validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/,
     message: "must be a valid e-mail address" }
 
+  validates :content, presence: true
+
   private
     def full_name_must_contain_at_least_two_tokens
       if full_name.blank? || full_name.split.count < 2
